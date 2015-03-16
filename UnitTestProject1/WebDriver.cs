@@ -22,28 +22,31 @@ namespace UnitTestProject1
         [SetUp]
         public void SetupTest()
         {
-            driver = new FirefoxDriver();
-            baseURL = "http://localhost:23618/";
-            verificationErrors = new StringBuilder();
+            
         }
 
-        [TearDown]
-        public void TeardownTest()
-        {
-            try
-            {
-                driver.Quit();
-            }
-            catch (Exception)
-            {
-                // Ignore errors if unable to close the browser
-            }
-            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual("", verificationErrors.ToString());
-        }
+        //[TearDown]
+        //public void TeardownTest()
+        //{
+        //    try
+        //    {
+        //        driver.Quit();
+        //    }
+        //    catch (Exception)
+        //    {
+        //        // Ignore errors if unable to close the browser
+        //    }
+        //    Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual("", verificationErrors.ToString());
+        //}
 
         [TestMethod]
         public void TheExampleTest()
         {
+
+            driver = new FirefoxDriver();
+            baseURL = "http://kunyao.selenium/";
+            verificationErrors = new StringBuilder();
+
             driver.Navigate().GoToUrl(baseURL + "/index.aspx");
             driver.FindElement(By.Id("money")).Clear();
             driver.FindElement(By.Id("money")).SendKeys("1980");
